@@ -26,3 +26,25 @@ function buttonCreate(){
 
 
 // 7. Create submission form that creates new buttons for user.
+function submitAnimal(){
+    var newButton = document.getElementById("user-add-button").value;
+    console.log(newButton);
+    // var buttonArr = ["dog", "cat", "pig"];
+    buttonArr.push(newButton);
+    console.log(buttonArr);
+    var newGifButton = document.createElement("button");
+    newGifButton.classList.add("btn");
+    newGifButton.innerHTML = newButton;
+    $("#button-holder").append(newGifButton);
+
+    // function newButtonCreate(){
+        // for (i = 0; i < buttonArr.length; i++){
+        //     var gifButton = document.createElement("button");
+        //     gifButton.classList.add("btn");
+        //     gifButton.innerHTML = buttonArr[i];
+        //     $("#button-holder").append(gifButton);
+        // }
+    };
+    // newButtonCreate();
+    
+
