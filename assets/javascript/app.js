@@ -1,0 +1,19 @@
+// Create an array.
+var buttonArr = [dog, cat, pig];
+
+// 2. Create buttons to represent array items
+
+
+// 3. Buttons retrieve 10 related gifs on press.
+
+
+// 4. Display still gifs.
+
+
+// 5. Gif starts upon user click.
+
+
+// 6. gif stops on user click.
+
+
+// 7. Create submission form that creates new buttons for user.
