@@ -17,6 +17,19 @@ function buttonCreate(){
 
 // 3. Buttons retrieve 10 related gifs on press.
 
+$(".btn").on("click", function(loadGifs){
+    loadGifs.preventDefault();
+    console.log("click noticed");
+
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&tag=dog&rating=G";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+    });
+});
 
 // 4. Display still gifs.
 
