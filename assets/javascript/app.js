@@ -29,7 +29,7 @@ function buttonCreate(){
 function submitAnimal(){
     var newButton = document.getElementById("user-add-button").value;
     console.log(newButton);
-    // var buttonArr = ["dog", "cat", "pig"];
+    document.getElementById("user-add-button").value = "";
     buttonArr.push(newButton);
     console.log(buttonArr);
     var newGifButton = document.createElement("button");
