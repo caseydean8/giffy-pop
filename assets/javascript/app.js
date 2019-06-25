@@ -27,8 +27,13 @@ $(".btn").on("click", function(loadGifs){
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response);
+        // console.log(response);
+        
+        $("#button-holder").append(response.data.embed_url); 
+        console.log(response.data.embed_url);
     });
+   
+
 });
 
 // 4. Display still gifs.
