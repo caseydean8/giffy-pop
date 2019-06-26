@@ -44,9 +44,13 @@ $(document).on("click", ".btn", function(loadGifs){
         // Creating and storing an image tag
         var gifImage = $("<img>");
 
+        // Adding a class for future css adjustment
+        gifImage.addClass("gif-style");
+
         // Setting the gifImage src attribute to imageUrl
         gifImage.attr("src", giffyPop);
         gifImage.attr("alt", searchTerm + " image");
+        
         
         $("#gif-holder").append(gifImage); 
         
