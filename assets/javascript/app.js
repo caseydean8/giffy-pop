@@ -3,6 +3,7 @@ var buttonArr = ["dog", "cat", "pig"];
 
 // 2. Create buttons to represent array items
 window.onload = buttonCreate();
+// window.onload is unobtrusive compared to document
 function buttonCreate(){
     $("#button-holder").empty();
     // $("#user-input").empty();
@@ -21,24 +22,26 @@ $("#add-button").on("click", function(event){
     buttonArr.push(newButton);
     $("#user-input").val("");
     buttonCreate();
-})
+});
 
 // 3. Buttons retrieve 10 related gifs on press.
 
 $(document).on("click", ".btn", function(loadGifs){
     loadGifs.preventDefault();
     console.log("click noticed");
-
-    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&tag=dog&rating=G";
-
+    var searchTerm = $(this).text().toLowerCase();
+    console.log(searchTerm);
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&tag=" + searchTerm + "&rating=G&limit=10";
+    
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
         // console.log(response);
+        // might have to add an image tag here
         
-        $("#gif-holder").append(response.data.embed_url); 
-        console.log(response.data.embed_url);
+        $("#gif-holder").attr("src",response.data.image_original_url); 
+        console.log(response.data.image_original_url);
     });
    
 
