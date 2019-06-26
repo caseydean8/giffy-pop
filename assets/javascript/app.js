@@ -7,13 +7,21 @@ function buttonCreate(){
     $("#button-holder").empty();
     // $("#user-input").empty();
     for (i = 0; i < buttonArr.length; i++){
-        var gifButton = document.createElement("button");
-        gifButton.classList.add("btn");
-        gifButton.innerHTML = buttonArr[i];
+        var gifButton = $("<button>");
+        gifButton.addClass("btn");
+        gifButton.attr("src");
+        gifButton.text(buttonArr[i]);
         $("#button-holder").append(gifButton); 
     }
 }
 
+$("#add-button").on("click", function(event){
+    event.preventDefault();
+    var newButton = $("#user-input").val().trim();
+    buttonArr.push(newButton);
+    $("#user-input").val("");
+    buttonCreate();
+})
 
 // 3. Buttons retrieve 10 related gifs on press.
 
@@ -29,7 +37,7 @@ $(".btn").on("click", function(loadGifs){
     }).then(function(response){
         // console.log(response);
         
-        $("#button-holder").append(response.data.embed_url); 
+        $("#gif-holder").append(response.data.embed_url); 
         console.log(response.data.embed_url);
     });
    
@@ -47,13 +55,14 @@ $(".btn").on("click", function(loadGifs){
 
 // 7. Create submission form that creates new buttons for user.
 
-$("#add-button").on("click", function(event){
-    event.preventDefault();
-    var newButton = $("#user-input").val().trim();
-    buttonArr.push(newButton);
-    $("#user-input").val("");
-    buttonCreate();
-})
+// moved above loadGifs
+// $("#add-button").on("click", function(event){
+//     event.preventDefault();
+//     var newButton = $("#user-input").val().trim();
+//     buttonArr.push(newButton);
+//     $("#user-input").val("");
+//     buttonCreate();
+// })
 
 // function submitAnimal(){
     
