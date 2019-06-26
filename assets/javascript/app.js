@@ -37,11 +37,19 @@ $(document).on("click", ".btn", function(loadGifs){
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        // console.log(response);
-        // might have to add an image tag here
+    
+        // Saving the image_original_url property
+        var giffyPop = response.data.image_original_url;
+
+        // Creating and storing an image tag
+        var gifImage = $("<img>");
+
+        // Setting the gifImage src attribute to imageUrl
+        gifImage.attr("src", giffyPop);
+        gifImage.attr("alt", searchTerm + " image");
         
-        $("#gif-holder").attr("src",response.data.image_original_url); 
-        console.log(response.data.image_original_url);
+        $("#gif-holder").append(gifImage); 
+        
     });
    
 
