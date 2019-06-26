@@ -25,7 +25,7 @@ $("#add-button").on("click", function(event){
 
 // 3. Buttons retrieve 10 related gifs on press.
 
-$(".btn").on("click", function(loadGifs){
+$(document).on("click", ".btn", function(loadGifs){
     loadGifs.preventDefault();
     console.log("click noticed");
 
