@@ -1,21 +1,22 @@
 // Create an array.
 var buttonArr = ["dog", "cat", "pig"];
 
-// 2. Create buttons to represent array items
 window.onload = buttonCreate();
 // window.onload is unobtrusive compared to document
+
+// Create buttons to represent array items
 function buttonCreate(){
     $("#button-holder").empty();
     // $("#user-input").empty();
     for (i = 0; i < buttonArr.length; i++){
         var gifButton = $("<button>");
         gifButton.addClass("btn");
-        gifButton.attr("src");
         gifButton.text(buttonArr[i]);
         $("#button-holder").append(gifButton); 
     }
 }
 
+// Create buttons from user input.
 $("#add-button").on("click", function(event){
     event.preventDefault();
     var newButton = $("#user-input").val().trim();
@@ -31,28 +32,31 @@ $(document).on("click", ".btn", function(loadGifs){
     console.log("click noticed");
     var searchTerm = $(this).text().toLowerCase();
     console.log(searchTerm);
-    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&tag=" + searchTerm + "&rating=G&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&limit=10";
     
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
+
+        var apiResults = response.data;
+        console.log(apiResults);
     
         // Saving the image_original_url property
         var giffyPop = response.data.image_original_url;
 
         // Creating and storing an image tag
-        var gifImage = $("<img>");
+        var gifImageTag = $("<img>");
 
-        // Adding a class for future css adjustment
-        gifImage.addClass("gif-style");
-
-        // Setting the gifImage src attribute to imageUrl
-        gifImage.attr("src", giffyPop);
-        gifImage.attr("alt", searchTerm + " image");
+        // Adding a class for future css adjustment and setting the gifImageTag src attribute to imageUrl
+        gifImageTag.attr({
+            class: "gif-style",
+            src: giffyPop,
+            alt: searchTerm + " image"
+        });
         
-        
-        $("#gif-holder").append(gifImage); 
+        // Append at gif-holder div
+        $("#gif-holder").append(gifImageTag); 
         
     });
    
