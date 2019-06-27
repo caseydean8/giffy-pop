@@ -41,23 +41,32 @@ $(document).on("click", ".btn", function(loadGifs){
 
         var apiResults = response.data;
         console.log(apiResults);
-    
-        // Saving the image_original_url property
-        var giffyPop = response.data.image_original_url;
 
-        // Creating and storing an image tag
-        var gifImageTag = $("<img>");
+        for (var i = 0; i < apiResults.length; i++){
+            if (apiResults[i].rating !== "r" && apiResults[i].rating !== "pg-13"){
+                
+            // var rating = apiResults[i].rating;
+            // var gifURL = apiResults[i].images.fixed_height.url,
+                
+            // var paragraph = $("<p>").text("Rated " + rating);
 
-        // Adding a class for future css adjustment and setting the gifImageTag src attribute to imageUrl
-        gifImageTag.attr({
-            class: "gif-style",
-            src: giffyPop,
-            alt: searchTerm + " image"
-        });
-        
-        // Append at gif-holder div
-        $("#gif-holder").append(gifImageTag); 
-        
+            // Saving the image_original_url property
+            // var giffyPop = response.data.image_original_url;
+
+            // Creating and storing an image tag
+            var gifImageTag = $("<img>");
+
+            // Adding a class for future css adjustment and setting the gifImageTag src attribute to imageUrl
+            gifImageTag.attr({
+                class: "gif-style",
+                // src: gifURL,
+                alt: searchTerm + " image"
+            });
+            gifImageTag.attr("src", apiResults[i].images.fixed_height.url);
+            // Append at gif-holder div
+            $("#gif-holder").append(gifImageTag,); 
+            }
+        }
     });
    
 
