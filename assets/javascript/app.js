@@ -44,14 +44,10 @@ $(document).on("click", ".btn", function(loadGifs){
 
         for (var i = 0; i < apiResults.length; i++){
             if (apiResults[i].rating !== "r" && apiResults[i].rating !== "pg-13"){
-                
-            // var rating = apiResults[i].rating;
-            // var gifURL = apiResults[i].images.fixed_height.url,
-                
-            // var paragraph = $("<p>").text("Rated " + rating);
-
-            // Saving the image_original_url property
-            // var giffyPop = response.data.image_original_url;
+            var imageNest = $("<div>");
+            var rating = apiResults[i].rating;
+            
+            var ratingSpan = $("<p>").text("Rated " + rating);
 
             // Creating and storing an image tag
             var gifImageTag = $("<img>");
@@ -63,8 +59,12 @@ $(document).on("click", ".btn", function(loadGifs){
                 alt: searchTerm + " image"
             });
             gifImageTag.attr("src", apiResults[i].images.fixed_height.url);
+
+            // Append paragraph span and gif to imageNest
+            imageNest.append(ratingSpan);
+            imageNest.append(gifImageTag);
             // Append at gif-holder div
-            $("#gif-holder").append(gifImageTag,); 
+            $("#gif-holder").append(imageNest); 
             }
         }
     });
@@ -82,37 +82,4 @@ $(document).on("click", ".btn", function(loadGifs){
 
 
 // 7. Create submission form that creates new buttons for user.
-
-// moved above loadGifs
-// $("#add-button").on("click", function(event){
-//     event.preventDefault();
-//     var newButton = $("#user-input").val().trim();
-//     buttonArr.push(newButton);
-//     $("#user-input").val("");
-//     buttonCreate();
-// })
-
-// function submitAnimal(){
-    
-//     var newButton = document.getElementById("user-add-button").value;
-//     console.log(newButton);
-//     document.getElementById("user-input").value = "";
-//     buttonArr.push(newButton);
-//     console.log(buttonArr);
-//     var newGifButton = document.createElement("button");
-//     newGifButton.classList.add("btn");
-//     newGifButton.innerHTML = newButton;
-//     $("#button-holder").append(newGifButton);
-// };
- 
-
-// this is supposed to change enter to a click, not working for me.
-// var input = document.getElementById("user-add-button");
-//     input.addEventListener("keyup", function(event) {
-//       if (event.keyCode === 13) {
-//        event.preventDefault();
-//        document.getElementById("user-add-button").click();
-//       }
-//     }); 
-       
 
