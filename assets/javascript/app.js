@@ -16,7 +16,7 @@ function buttonCreate(){
     }
 }
 
-// Create buttons from user input.
+// Create new buttons from user input.
 $("#add-button").on("click", function(event){
     event.preventDefault();
     var newButton = $("#user-input").val().trim();
@@ -25,11 +25,11 @@ $("#add-button").on("click", function(event){
     buttonCreate();
 });
 
-// 3. Buttons retrieve 10 related gifs on press.
+// Buttons retrieve 10 related still images/gifs.
 
 $(document).on("click", ".btn", function(loadGifs){
     loadGifs.preventDefault();
-    console.log("click noticed");
+    
     var searchTerm = $(this).text().toLowerCase();
     console.log(searchTerm);
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&limit=10";
@@ -52,12 +52,12 @@ $(document).on("click", ".btn", function(loadGifs){
             // Creating and storing an image tag
             var gifImageTag = $("<img>");
 
-            // Adding a class for future css adjustment and setting the gifImageTag src attribute to imageUrl
+            // Adding a class and setting the gifImageTag src attribute to imageUrl
             gifImageTag.attr({
                 class: "gif-style",
-                // src: gifURL,
                 alt: searchTerm + " image"
             });
+
             gifImageTag.attr("src", apiResults[i].images.fixed_height_still.url);
 
             gifImageTag.attr("data-still", apiResults[i].images.fixed_height_still.url);
@@ -74,6 +74,7 @@ $(document).on("click", ".btn", function(loadGifs){
             // Append paragraph span and gif to imageNest
             imageNest.append(ratingSpan);
             imageNest.append(gifImageTag);
+
             // Append at gif-holder div
             $("#gif-holder").append(imageNest); 
             }
@@ -88,9 +89,19 @@ $(document).on("click", ".btn", function(loadGifs){
 
 // 5. Gif starts upon user click.
 
-
-// 6. gif stops on user click.
-
-
-// 7. Create submission form that creates new buttons for user.
+$(document).on("click", "img.gif-style", function() {
+    
+    var state = $(this).attr("data-state");
+    
+    // If clicked image's state is still, change its src to what its data-playing value is.
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-playing"));
+      // Then, set the image's data-state to playing
+      $(this).attr("data-state", "playing");
+        // Else gif stops on user click, set src to the data-still value
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  });
 
