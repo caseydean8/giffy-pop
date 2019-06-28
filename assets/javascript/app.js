@@ -1,5 +1,5 @@
 // Create an array.
-var buttonArr = ["dog", "cat", "pig"];
+var topics = ["mouse", "cat", "pig"];
 
 window.onload = buttonCreate();
 // window.onload is unobtrusive compared to document
@@ -8,10 +8,10 @@ window.onload = buttonCreate();
 function buttonCreate(){
     $("#button-holder").empty();
     // $("#user-input").empty();
-    for (i = 0; i < buttonArr.length; i++){
+    for (i = 0; i < topics.length; i++){
         var gifButton = $("<button>");
         gifButton.addClass("btn");
-        gifButton.text(buttonArr[i]);
+        gifButton.text(topics[i]);
         $("#button-holder").append(gifButton); 
     }
 }
@@ -24,7 +24,7 @@ $("#add-button").on("click", function(event){
     if ($("#user-input").val().length != 0){
     $("#add-button").attr("disabled", false);
     var newButton = $("#user-input").val().trim();
-    buttonArr.push(newButton);
+    topics.push(newButton);
     $("#user-input").val("");
     buttonCreate();
     };
