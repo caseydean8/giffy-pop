@@ -29,6 +29,8 @@ $("#add-button").on("click", function(event){
 
 $(document).on("click", ".btn", function(loadGifs){
     loadGifs.preventDefault();
+    // Clear any previous gifs.
+    $("#gif-holder").empty();
     
     var searchTerm = $(this).text().toLowerCase();
     console.log(searchTerm);
