@@ -60,11 +60,11 @@ $(document).on("click", ".btn", function(loadGifs){
                 alt: searchTerm + " image"
             });
 
-            gifImageTag.attr("src", apiResults[i].images.fixed_height_still.url);
+            gifImageTag.attr("src", apiResults[i].images.fixed_width_still.url);
 
-            gifImageTag.attr("data-still", apiResults[i].images.fixed_height_still.url);
+            gifImageTag.attr("data-still", apiResults[i].images.fixed_width_still.url);
 
-            gifImageTag.attr("data-playing", apiResults[i].images.fixed_height.url);
+            gifImageTag.attr("data-playing", apiResults[i].images.fixed_width.url);
 
             gifImageTag.attr("data-state", "still");
 
