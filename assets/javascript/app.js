@@ -19,10 +19,18 @@ function buttonCreate(){
 // Create new buttons from user input.
 $("#add-button").on("click", function(event){
     event.preventDefault();
+    // $("#add-button").attr("disabled", true);
+    // Disable submit button if input field is blank.
+    if ($("#user-input").val().length != 0){
+    $("#add-button").attr("disabled", false);
     var newButton = $("#user-input").val().trim();
     buttonArr.push(newButton);
     $("#user-input").val("");
     buttonCreate();
+    };
+    // else {
+    // $("#add-button").attr("disabled", true);
+    // };  
 });
 
 // Buttons retrieve 10 related still images/gifs.
