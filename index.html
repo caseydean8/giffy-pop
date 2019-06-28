@@ -6,19 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>gif-fy pop</title>
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <div id="button-holder"></div>
-    <form>
-        <input id="user-input" type="text">
+    <div class="container">
+        <div class="row">
+            <div class="one-half column" style="margin-top: 25%">
+            <h4>Giff-fy Pop</h4>
+        
+            <div id="button-holder"></div>
+            <form>
+                <input id="user-input" type="text">
+        
+                <input id="add-button" type="submit" value="Submit animal">
+            </form>
+        
+            <div id="gif-holder"></div>
+        
+        
+        </div>
 
-        <input id="add-button" type="submit" value="Submit animal">
-    </form>
-
-    <div id="gif-holder"></div>
+        </div>
+    </div>
 
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"
