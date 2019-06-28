@@ -58,7 +58,18 @@ $(document).on("click", ".btn", function(loadGifs){
                 // src: gifURL,
                 alt: searchTerm + " image"
             });
-            gifImageTag.attr("src", apiResults[i].images.fixed_height.url);
+            gifImageTag.attr("src", apiResults[i].images.fixed_height_still.url);
+
+            gifImageTag.attr("data-still", apiResults[i].images.fixed_height_still.url);
+
+            gifImageTag.attr("data-playing", apiResults[i].images.fixed_height.url);
+
+            gifImageTag.attr("data-state", "still");
+
+            // gifImageTag.data("still", apiResults[i].images.fixed_height_still.url);
+            // gifImageTag.data("playing", apiResults[i].images.fixed_height.url);
+            // gifImageTag.data("state", "still");
+
 
             // Append paragraph span and gif to imageNest
             imageNest.append(ratingSpan);
