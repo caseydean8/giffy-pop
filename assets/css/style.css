@@ -2,24 +2,75 @@ html,
 body {
   width: auto !important;
   overflow-x: hidden !important;
+  color: #203562;
   /* margin: 0 auto; */
+  /* max-width: 100vh; */
+}
+
+.outer-container {
+  background: #e3e8f8;
+  min-height: 100vh;
+}
+
+.header {
+  background: white;
+  text-align: center;
+}
+
+/* h2 {
+  text-align: center;
+} */
+
+.row {
+  /* display: block; */
+}
+
+button {
+  background: #dcdfe4;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.gif-hold {
+  /* display: flex; */
+  /* margin: 10px auto; */
+  /* display: flex; */
+   /* flex-direction: row; */
+   /* align-items: center; */
+   /* justify-content: center; */
+}
+
+#gif-holder {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  /* align-items: center; */
+  justify-content: center;
 }
 
 .gifDiv {
+  /* float: left; */
   margin: 20px;
   border-radius: 4px;
-  border: 1px solid #bbb;
-  background: #eee;
+  border: 1px solid #3e588f;
+  background: #ebecef;
+  /* min-height: 355px; */
+  /* height: 355px;
+  width: auto; */
 }
 
 img {
-    width: 96%;
-    border-radius: 4px
+  /* width: 96%; */
+  /* height: 96%; */
+  height: 200px;
+  border-radius: 4px;
 }
 
 .btn {
-  margin-right: 1rem;
-  margin-left: 1rem
+  margin: 10px;
 }
 
 p {
@@ -27,13 +78,24 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
+  body {
+    /* max-width: 375px; */
+    /* display: block; */
+  }
+
   .container {
     padding: 0;
+    /* overflow: hidden; */
+    /* width: 375px; */
   }
 
   .row {
     margin: 0;
   }
+
+  /* .column {
+    width: 96%;
+  } */
 
   input {
     width: 80%;
