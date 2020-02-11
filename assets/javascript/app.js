@@ -46,46 +46,44 @@ $(d).on("click", ".btn", function(loadGifs) {
     method: "GET"
   }).then(function(response) {
     const apiResults = response.data;
-    console.log(apiResults);
+    // console.log(apiResults);
+    apiResults.forEach(result => {
+      if (result.rating !== "r" && result.rating !== "pg-13") {
+        const imageNest = $("<div>").addClass("gifDiv");
+        const rating = result.rating;
 
-    for (var i = 0; i < apiResults.length; i++) {
-        // apiResults.forEach(result => {
-            if (apiResults[i].rating !== "r" && apiResults[i].rating !== "pg-13") {
-                var imageNest = $("<div>");
-                var rating = apiResults[i].rating;
-        
-                var ratingSpan = $("<p>").text("Rated " + rating);
-        
-                // Creating and storing an image tag
-                var gifImageTag = $("<img>");
-        
-                // Adding a class and setting the gifImageTag src attribute to imageUrl
-                gifImageTag.attr({
-                  class: "gif-style",
-                  alt: searchTerm + " image"
-                });
-        
-                gifImageTag.attr("src", apiResults[i].images.fixed_width_still.url);
-        
-                gifImageTag.attr(
-                  "data-still",
-                  apiResults[i].images.fixed_width_still.url
-                );
-        
-                gifImageTag.attr("data-playing", apiResults[i].images.fixed_width.url);
-        
-                gifImageTag.attr("data-state", "still");
-        
-                // Append paragraph span and gif to imageNest
-                imageNest.append(ratingSpan);
-                imageNest.append(gifImageTag);
-        
-                // Append at gif-holder div
-                $("#gif-holder").append(imageNest);
-              }
-        // })
-      
-    }
+        const ratingSpan = $("<p>").text("Rated " + rating);
+
+        // Creating and storing an image tag
+        const gifImageTag = $("<img>");
+
+        // Adding a class and setting the gifImageTag src attribute to imageUrl
+        gifImageTag.attr({
+          class: "gif-style",
+          alt: `${searchTerm} image`
+        });
+
+        gifImageTag.attr("src", result.images.fixed_width_still.url);
+
+        gifImageTag.attr(
+          "data-still",
+          result.images.fixed_width_still.url
+        );
+
+        gifImageTag.attr("data-playing", result.images.fixed_width.url);
+
+        gifImageTag.attr("data-state", "still");
+
+        // Append paragraph span and gif to imageNest
+        imageNest.append(ratingSpan);
+        imageNest.append(gifImageTag);
+
+        // Append at gif-holder div
+        $("#gif-holder").append(imageNest);
+      }
+    });
+
+    // }
   });
 });
 
