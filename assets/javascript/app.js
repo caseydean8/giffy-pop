@@ -1,9 +1,10 @@
-// Create an array.
-const d = document;
-let topics = ["mouse", "cat", "piggy"];
+
 // Create buttons to represent array items
-const buttonCreate = () => {
-  d.getElementById("button-holder").innerHTML = "";
+const buttonCreate = (item) => {
+  console.log(item);
+  document.getElementById("button-holder").innerHTML = "";
+  let topics = ["mouse", "cat", "piggy"];
+  if (item) topics.push(item);
   topics.forEach(topic => {
     const gifButton = $("<button>");
     gifButton.addClass("btn");
@@ -21,17 +22,18 @@ $("#add-button").on("click", function(event) {
   // Disable submit button if input field is blank.
   if ($("#user-input").val().length != 0) {
     this.disabled = false;
+    // let userChoice = ""
     const newButton = $("#user-input")
       .val()
       .trim();
-    topics.push(newButton);
+    // topics.push(newButton);
     $("#user-input").val("");
-    buttonCreate();
-    loadGifs(newButton);
+    buttonCreate(newButton);
+    gifSearch(newButton);
   }
 });
 
-const loadGifs = (searchTerm) => {
+const gifSearch = searchTerm => {
   // Clear any previous gifs.
   document.getElementById("gif-holder").innerHTML = "";
 
@@ -84,7 +86,7 @@ const loadGifs = (searchTerm) => {
 
 $(document).on("click", ".btn", function(event) {
   event.preventDefault();
-  loadGifs(this.textContent);
+  gifSearch(this.textContent);
 });
 
 // 4. Display still gifs.
