@@ -15,6 +15,7 @@ body {
 .header {
   background: white;
   text-align: center;
+  border-bottom: 1.6px solid #203562;
 }
 
 #button-holder {
@@ -37,7 +38,7 @@ input {
 
 form {
   /* width: 60%; */
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .gif-hold {
@@ -64,7 +65,7 @@ form {
   border: 1px solid #3e588f;
   background: #ebecef;
   width: 278px;
-  height: 278px;
+  height: 302px;
   /* min-height: 355px; */
   /* height: 355px;
   width: auto; */
@@ -93,13 +94,14 @@ p {
   }
 
   .container {
-    padding: 0;
+    /* padding: 0; */
     /* overflow: hidden; */
     /* width: 375px; */
   }
 
   .row {
-    margin: 0;
+    /* text-align: center; */
+    /* margin: 0; */
   }
 
   /* .column {

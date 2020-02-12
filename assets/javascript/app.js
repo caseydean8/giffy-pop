@@ -1,6 +1,6 @@
 // Create an array.
 const d = document;
-let topics = ["mouse", "cat", "pig"];
+let topics = ["mouse", "cat", "piggy"];
 // Create buttons to represent array items
 const buttonCreate = () => {
   d.getElementById("button-holder").innerHTML = "";
@@ -27,19 +27,17 @@ $("#add-button").on("click", function(event) {
     topics.push(newButton);
     $("#user-input").val("");
     buttonCreate();
+    loadGifs(newButton);
   }
 });
 
-// Buttons retrieve 10 related still images/gifs.
-
-$(d).on("click", ".btn", function(loadGifs) {
-  loadGifs.preventDefault();
+const loadGifs = (searchTerm) => {
   // Clear any previous gifs.
-  d.getElementById("gif-holder").innerHTML = "";
+  document.getElementById("gif-holder").innerHTML = "";
 
-  const searchTerm = this.textContent.toLowerCase();
+  // const searchTerm = this.textContent.toLowerCase();
   console.log(searchTerm);
-  const queryURL = `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&limit=10`;
+  const queryURL = `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&limit=12`;
 
   $.ajax({
     url: queryURL,
@@ -65,10 +63,7 @@ $(d).on("click", ".btn", function(loadGifs) {
 
         gifImageTag.attr("src", result.images.fixed_width_still.url);
 
-        gifImageTag.attr(
-          "data-still",
-          result.images.fixed_width_still.url
-        );
+        gifImageTag.attr("data-still", result.images.fixed_width_still.url);
 
         gifImageTag.attr("data-playing", result.images.fixed_width.url);
 
@@ -82,9 +77,14 @@ $(d).on("click", ".btn", function(loadGifs) {
         $("#gif-holder").append(imageNest);
       }
     });
-
-    // }
   });
+};
+
+// Buttons retrieve 10 related still images/gifs.
+
+$(document).on("click", ".btn", function(event) {
+  event.preventDefault();
+  loadGifs(this.textContent);
 });
 
 // 4. Display still gifs.
