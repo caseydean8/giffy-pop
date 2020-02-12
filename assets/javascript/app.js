@@ -1,7 +1,8 @@
 // Create buttons to represent array items
+let topics = ["mouse", "cat", "piggy"];
+
 const buttonCreate = item => {
   document.getElementById("button-holder").innerHTML = "";
-  let topics = ["mouse", "cat", "piggy"];
   if (item) topics.push(item);
   topics.forEach(topic => {
     const gifButton = $("<button>");
@@ -41,7 +42,7 @@ const gifSearch = searchTerm => {
   // Clear any previous gifs.
   document.getElementById("gif-holder").innerHTML = "";
 
-  // const searchTerm = this.textContent.toLowerCase();
+  // searchTerm = searchTerm.toLowerCase();
   console.log(searchTerm);
   const queryURL = `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=sjxTFxkgrJPh4S2PEHiPUCsBc9oW69JM&limit=12`;
 
@@ -50,7 +51,6 @@ const gifSearch = searchTerm => {
     method: "GET"
   }).then(function(response) {
     const apiResults = response.data;
-    // console.log(apiResults);
     gifDisplay(apiResults);
   });
 };
@@ -70,6 +70,7 @@ const gifDisplay = array => {
 
       // Adding a class and setting the gifImageTag src attribute to imageUrl
       gifImageTag.attr({
+        // can probably remove class
         class: "gif-style",
         alt: `${result.title}`
       });

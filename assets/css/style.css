@@ -10,10 +10,12 @@ body {
 .outer-container {
   background: #e3e8f8;
   min-height: 100vh;
+  /* max-width: 100vh; */
 }
 
 .header {
   background: white;
+  padding-top: 20px;
   text-align: center;
   border-bottom: 1.6px solid #203562;
 }
@@ -86,6 +88,7 @@ img {
 p {
   margin: 5px;
 }
+/* ------------- MEDIA QUERIES ------------- */
 
 @media only screen and (max-width: 600px) {
   body {
@@ -94,7 +97,7 @@ p {
   }
 
   .container {
-    /* padding: 0; */
+    padding: 0;
     /* overflow: hidden; */
     /* width: 375px; */
   }
@@ -103,6 +106,41 @@ p {
     /* text-align: center; */
     /* margin: 0; */
   }
+
+  .top {
+    margin-left: 0;
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+  }
+
+  input {
+    margin: 10px 0 0 0;
+    /* display: flex; */
+    justify-self: center;
+  }
+  .gifDiv {
+    /* float: left; */
+    margin: 10px 0;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #3e588f;
+    border-bottom: 1px solid #3e588f;
+    background: white;
+    width: 100%;
+    height: auto;
+    /* height: 302px; */
+    /* min-height: 355px; */
+    /* height: 355px;
+    width: auto; */
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+
 
   /* .column {
     width: 96%;
