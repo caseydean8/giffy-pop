@@ -17,21 +17,27 @@ body {
   text-align: center;
 }
 
-/* h2 {
-  text-align: center;
-} */
+#button-holder {
+  display: flex;
+  flex-flow: wrap;
+}
 
-.row {
-  /* display: block; */
+.top {
+  text-align: left;
+  margin-left: 10px;
 }
 
 button {
   background: #dcdfe4;
 }
 
+input {
+  margin: 10px 0 0 10px;
+}
+
 form {
-  width: 60%;
-  margin: 0 auto;
+  /* width: 60%; */
+  /* margin: 0 auto; */
 }
 
 .gif-hold {
@@ -57,20 +63,23 @@ form {
   border-radius: 4px;
   border: 1px solid #3e588f;
   background: #ebecef;
+  width: 278px;
+  height: 278px;
   /* min-height: 355px; */
   /* height: 355px;
   width: auto; */
 }
 
 img {
-  /* width: 96%; */
-  /* height: 96%; */
-  height: 200px;
+  max-width: 96%;
+  height: 86%;
+  /* width: 300px; */
+  /* max-height: 250px; */
   border-radius: 4px;
 }
 
 .btn {
-  margin: 10px;
+  margin: 10px 0 0 10px;
 }
 
 p {
