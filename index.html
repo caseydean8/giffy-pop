@@ -21,26 +21,20 @@
 </head>
 
 <body>
-    <div class="outer-container">
-        <div class="row header">
-            <h2>Giffy Pop</h2>
+    <div class="header">
+        <h2>Giffy Pop</h2>
+    </div>
+    <div class="container">
+        <div class="top">
+            <div id="button-holder"></div>
+            <form>
+                <input id="user-input" type="text">
+                <input id="add-button" type="submit" value="Submit">
+            </form>
         </div>
-        <div class="container">
-            <div class="row top">
-                <!-- <div class="column top"> -->
-                    <div id="button-holder"></div>
-                    <form>
-                        <input id="user-input" type="text">
-                        <input id="add-button" type="submit" value="Submit">
-                    </form>
-                <!-- </div> -->
-            </div>
-            <div class="row">
-                <!-- <div class="column gif-hold"> -->
-                    <div id="gif-holder"></div>
-                <!-- </div> -->
-            </div>
-        </div>
+        <!-- <div> -->
+            <div id="gif-holder"></div>
+        <!-- </div> -->
     </div>
 
     <script src="assets/jQueryv3.4.1/jquery.js"></script>
