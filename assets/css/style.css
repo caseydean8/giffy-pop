@@ -10,7 +10,7 @@ body {
   border-bottom: 1.6px solid #203562;
 }
 .container {
-  overflow-x: hidden;
+  overflow-x: hidden
 }
 
 #button-holder {
@@ -90,7 +90,7 @@ p {
 
   .container {
     width: 100%;
-    padding: 0;
+    padding: 0 0 33% 0;
     margin: 0;
     background-color: #e3e8f8;
     min-height: 80vh;
@@ -112,6 +112,19 @@ p {
   #add-button {
     width: 98px;
     padding: 0 15px;
+  }
+
+  .gifDiv {
+    width: 90%;
+    min-height: 0;
+    
+  }
+
+  img {
+    /* max-width: 100%; */
+    width: 100%;
+    height: auto;
+    border-radius: 0;
   }
 
 }
