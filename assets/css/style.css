@@ -1,7 +1,4 @@
-/* html, */
 body {
-  /* width: auto !important; */
-  /* overflow-x: hidden !important; */
   color: #203562;
   background: #e3e8f8;
 }
@@ -11,7 +8,6 @@ body {
   padding-top: 20px;
   text-align: center;
   border-bottom: 1.6px solid #203562;
-  overflow: hidden;
 }
 .container {
   overflow-x: hidden;
@@ -20,11 +16,9 @@ body {
 #button-holder {
   display: flex;
   flex-flow: wrap;
-  overflow: hidden;
 }
 
 .top {
-  overflow: hidden;
   text-align: left;
   margin-left: 10px;
 }
@@ -34,12 +28,19 @@ button {
 }
 
 input {
-  margin: 10px 0 0 10px;
+  margin: 10px -4px 0 10px;
+}
+
+#user-input {
+  width: 21.33%;
 }
 
 #add-button {
   background: #3e588f;
+  width: 99.56px;
+  height: 36px;
   color: white;
+  border: 1px solid #203562;
 }
 
 #gif-holder {
@@ -80,8 +81,8 @@ p {
   body {
     overflow-x: hidden !important;
     background: white;
-    /* width: 100vh; */
   }
+
   .container {
     padding: 0;
     margin: 0;
@@ -92,15 +93,23 @@ p {
   .top {
     margin-left: 0;
     padding: 0 30px 0 20px;
-    text-align: center;
   }
 
   #button-holder {
     justify-content: center;
   }
 
+  #user-input {
+    width: 206px;
+  }
+
+  #add-button {
+    width: 98px;
+    padding: 0 15px;
+  }
+
   .gifDiv {
-    margin: 10px 0;
+    margin: 10px -9px;
     border: none;
     border-radius: 0;
     border-top: 1px solid #3e588f;
@@ -111,7 +120,7 @@ p {
   }
 
   img {
-    /* max-width: 100%; */
+    max-width: 100%;
     width: 100%;
     height: auto;
     border-radius: 0;
