@@ -59,34 +59,21 @@ const gifSearch = searchTerm => {
 const gifDisplay = array => {
   array.forEach(result => {
     if (result.rating !== "r" && result.rating !== "pg-13") {
-      // console.log(result);
       const imageNest = $("<div>").addClass("gifDiv");
-      const rating = result.rating;
-
-      const ratingSpan = $("<p>").text("Rated " + rating);
-
+      const ratingSpan = $("<p>").text(`Rated ${result.rating}`);
       // Creating and storing an image tag
       const gifImageTag = $("<img>");
-
       // Adding a class and setting the gifImageTag src attribute to imageUrl
       gifImageTag.attr({
-        // can probably remove class
         class: "gif-style",
+        src: result.images.fixed_width_still.url,
+        "data-still": result.images.fixed_width_still.url,
+        "data-playing": result.images.fixed_width.url,
+        "data-state": "still",
         alt: `${result.title}`
       });
-
-      gifImageTag.attr("src", result.images.fixed_width_still.url);
-
-      gifImageTag.attr("data-still", result.images.fixed_width_still.url);
-
-      gifImageTag.attr("data-playing", result.images.fixed_width.url);
-
-      gifImageTag.attr("data-state", "still");
-
       // Append paragraph span and gif to imageNest
-      imageNest.append(ratingSpan);
-      imageNest.append(gifImageTag);
-
+      imageNest.append(ratingSpan, gifImageTag);
       // Append at gif-holder div
       $("#gif-holder").append(imageNest);
     }
