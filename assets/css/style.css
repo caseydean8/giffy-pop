@@ -1,6 +1,7 @@
 body {
   color: #203562;
   background: #e3e8f8;
+  min-width: 320px;
 }
 
 .header {
@@ -121,7 +122,6 @@ p {
   }
 
   img {
-    /* max-width: 100%; */
     width: 100%;
     height: auto;
     border-radius: 0;
@@ -133,6 +133,7 @@ p {
   .top {
     padding: 0 30px 0 20px;
   }
+
   .gifDiv {
     margin: 10px -9px;
     border: none;
@@ -141,12 +142,10 @@ p {
     border-bottom: 1px solid #3e588f;
     background: white;
     width: 100vh;
-    min-height: 0;
   }
 
   img {
     max-width: 100%;
-    width: 100%;
     height: auto;
     border-radius: 0;
   }
