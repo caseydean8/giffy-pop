@@ -12,8 +12,7 @@ const buttonCreate = item => {
   });
 };
 
-window.onload = buttonCreate();
-// window.onload is unobtrusive compared to document
+buttonCreate();
 
 // Create new buttons from user input.
 $("#add-button").on("click", function(event) {
